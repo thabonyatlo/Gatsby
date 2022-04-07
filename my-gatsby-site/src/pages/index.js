@@ -28,9 +28,9 @@ const IndexPage = () => {
       {/* (29) */}
       <StaticImage
         alt="James Gatsby"
-        src="../images/Gatsby.jpg"
+        src="../images/Gatsby.webp"
       />
-    </Layout> 
+    </Layout>
   )
 }
 
