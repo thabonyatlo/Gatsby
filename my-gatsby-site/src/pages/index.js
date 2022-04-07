@@ -30,7 +30,7 @@ const IndexPage = () => {
         alt="James Gatsby"
         src="../images/Gatsby.jpg"
       />
-    </Layout>
+    </Layout> 
   )
 }
 
