@@ -1,9 +1,9 @@
 // (4) Step 1: Import React
-import * as React from 'react'
+import * as React from "react";
 // (7)
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 // (15)
-import Layout from '../components/layout'
+import Layout from "../components/layout";
 
 // Step 2: Define your component
 const AboutPage = () => {
@@ -17,10 +17,12 @@ const AboutPage = () => {
     // (16)
     // (17)
     <Layout pageTitle="About Me">
-      <p>Hi there! I'm the proud creator of this site, which I built with Gatsby.</p>
+      <p>
+        Hi there! I'm the proud creator of this site, which I built with Gatsby.
+      </p>
     </Layout>
-  )
-}
+  );
+};
 
 // Step 3: Export your component
-export default AboutPage
+export default AboutPage;

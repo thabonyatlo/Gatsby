@@ -8,7 +8,7 @@ import {
   Link,
 } from "gatsby";
 // (49)
-import { MDXRenderer } from "gatsby-plugin-mdx";
+// import { MDXRenderer } from "gatsby-plugin-mdx";
 
 const BlogPage = ({ /*(42)*/ data }) => {
   return (
