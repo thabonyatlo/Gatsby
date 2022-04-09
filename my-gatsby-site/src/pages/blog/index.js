@@ -1,10 +1,14 @@
 // (35)
 import * as React from "react";
-import Layout from "../components/layout";
+import Layout from "../../components/layout";
 // (40)
-import { graphql } from "gatsby";
+import {
+  graphql,
+  // (59)
+  Link,
+} from "gatsby";
 // (49)
-import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 const BlogPage = ({ /*(42)*/ data }) => {
   return (
@@ -17,18 +21,18 @@ const BlogPage = ({ /*(42)*/ data }) => {
           <li key={node.name}>{node.name}</li>
         ))} */}
         {/* (48) */}
-        {
-        data.allMdx.nodes.map((node) => (
+        {data.allMdx.nodes.map((node) => (
           <article key={node.id}>
-            <h2>{node.frontmatter.title}</h2>
+            {/* (60) <h2>{node.frontmatter.title}</h2> */}
+            {/* (61) */}
+            <h2>
+              <Link to={`/blog/${node.slug}`}>{node.frontmatter.title}</Link>
+            </h2>
             <p>Posted: {node.frontmatter.date}</p>
             {/* (50) */}
-            <MDXRenderer>
-              {node.body}
-            </MDXRenderer>
+            {/* (58) <MDXRenderer>{node.body}</MDXRenderer> */}
           </article>
-        ))
-      }
+        ))}
       </ul>
     </Layout>
   );
@@ -47,17 +51,19 @@ const BlogPage = ({ /*(42)*/ data }) => {
 // (47)
 export const query = graphql`
   query {
-    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         frontmatter {
           title
           date(formatString: "D MMMM , YYYY")
         }
         id
-        body
+        # (62)
+        # body
+        slug
       }
     }
   }
-`
+`;
 
 export default BlogPage;
